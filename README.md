@@ -1,16 +1,6 @@
 # Flask ML App
 
-This Flask application loads a scikit-learn model (nmodel.pkl) with joblib and serves it via a web API.
-
----
-
-Features:
-- Loads a machine learning model saved with joblib
-- Uses Flask web framework
-- Runs with Gunicorn for production
-- Uses NLTK, Google Generative AI, dotenv
-
----
+Live On--- https://cybershield-q3je.onrender.com 
 
 Requirements:
 - Python 3.8+
