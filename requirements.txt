@@ -4,3 +4,4 @@ nltk
 google-generativeai
 python-dotenv
 gunicorn
+scikit-learn
