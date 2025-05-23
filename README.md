@@ -1,52 +1,65 @@
-# Flask ML App
+# CyberShield
 
 Live On--- https://cybershield-q3je.onrender.com 
 
-Requirements:
-- Python 3.8+
-- Dependencies in requirements.txt:
-  Flask
-  joblib
-  nltk
-  google-generativeai
-  python-dotenv
-  gunicorn
-  scikit-learn
 
----
+**Protecting Digital Spaces with AI – Stopping Cyberbullying**
 
-Installation:
-1. Clone repo:
-   git clone <your-repo-url>
-   cd <your-repo-folder>
+## Overview
 
-2. (Optional) Create and activate virtual environment:
-   python3 -m venv venv
-   source venv/bin/activate    # Linux/macOS
-   .\venv\Scripts\activate     # Windows
+CyberShield is an AI-powered tool designed to detect and prevent cyberbullying using **machine learning models**, **natural language processing (NLP)**, and a **Flask-based web service**. 
+By analyzing online conversations, CyberShield helps create a safer digital environment.
 
-3. Install dependencies:
-   pip install -r requirements.txt
+## Features
 
+- **AI-driven cyberbullying detection** using NLP models
+- **Flask-based web service** for API integration
+- **Interactive Web Interface** for analysis and insights
+- **Google Gemini AI-powered conclusions** for better contextual assessment
 
----
+## Tech Stack
 
-Run locally:
-- Flask dev server:
-  flask run
+- **Jupyter Notebook** – Model development & experimentation
+- **HTML** – Web interface for user interaction
+- **Python 3.8+** – Core programming language
+- **Flask** – Web framework for API deployment
+- **ML Models (NLP-based)** – Detect toxic speech and cyberbullying
 
-- Gunicorn (production):
-  gunicorn app:app
+## Dependencies
 
----
+CyberShield requires the following dependencies (found in `requirements.txt`):
+- Flask
+- joblib
+- nltk
+- google-generativeai
+- python-dotenv
+- gunicorn
+- scikit-learn
 
-Deployment notes:
-- Ensure gunicorn and scikit-learn are in requirements.txt
-- Use `gunicorn app:app` as start command
-- Include nmodel.pkl in deployment
+## Installation
 
----
+### Step 1: Clone the Repository
+```sh
+git clone <your-repo-url>
+cd cybershield
 
+## Set Up a Virtual Environment (Optional)
 
+### Linux/macOS
+python3 -m venv venv
+source venv/bin/activate
 
+### Windows
+python3 -m venv venv
+.\venv\Scripts\activate
 
+## Install Dependencies
+pip install -r requirements.txt
+
+## Usage
+- Start the Flask server to serve the AI-powered detection API.
+python app.py
+
+- Submit comments for toxicity analysis using the /predict endpoint.
+- Generate AI-powered conclusions using the /conclude endpoint.
+- Integrate the API into existing platforms to enhance online safety.
