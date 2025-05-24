@@ -96,7 +96,8 @@ If you’re passionate about UX/UI, feel free to submit a pull request!
 
 ## ⭐ Star the repo and spread the word!
 
-👥 Contributors
+## 👥 Contributors
+
 Thanks to all the amazing contributors helping make CyberShield better!<br> <br>
 <a href="https://github.com/denshaw-09/contribute-Cybershield" target="_blank" rel="noopener noreferrer" style="text-decoration:none; text-align:center; display:inline-block;">
   <img src="https://github.com/denshaw-09.png" width="60" alt="denshaw-09 GitHub Avatar" style="border-radius:50%;" />
