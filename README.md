@@ -1,13 +1,12 @@
 # CyberShield 🛡️🤖
 
-Live On--- https://cybershield-q34je.onrender.com 
-
+Live On--- https://cybershield-q34je.onrender.com
 
 **Protecting Digital Spaces with AI – Stopping Cyberbullying**
 
 ## 🌟 Overview
 
-CyberShield is an AI-powered tool designed to detect and prevent cyberbullying using **machine learning models**, **natural language processing (NLP)**, and a **Flask-based web service**. 
+CyberShield is an AI-powered tool designed to detect and prevent cyberbullying using **machine learning models**, **natural language processing (NLP)**, and a **Flask-based web service**.
 By analyzing online conversations, CyberShield helps create a safer digital environment.
 
 ## ✨ Features
@@ -39,12 +38,14 @@ CyberShield requires the following dependencies (found in `requirements.txt`):
 ## ⚙️ Installation
 
 ### 🔽 Step 1: Clone the Repository
+
 ```sh
 git clone <your-repo-url>
 cd cybershield
 ```
 
 ### 🔽 Step 2: Set Up a Virtual Environment (Optional)
+
 ```
 ### Linux/macOS 🐧🍏
 python3 -m venv venv
@@ -54,7 +55,9 @@ source venv/bin/activate
 python3 -m venv venv
 .\venv\Scripts\activate
 ```
+
 ### 📌 Step 3: Install Dependencie
+
 ```
 pip install -r requirements.txt
 ```
@@ -62,9 +65,42 @@ pip install -r requirements.txt
 ## 🚀 Usage
 
 🔹 Start the Flask server to serve the AI-powered detection API.
+
 ```
 python app.py
 ```
+
 🔹 Submit comments for toxicity analysis using the /predict endpoint.
 🔹 Generate AI-powered conclusions using the /conclude endpoint.
 🔹 Integrate the API into existing platforms to enhance online safety.
+
+## 👑 Project Owner
+
+Built with 💡, 💻, and ❤️ by:
+
+## [MpawanK](https://github.com/mpawank)
+
+--🚀 Visionary behind CyberShield
+
+--🔧 Developer • Designer • Defender of Digital Spaces
+
+--📬 Connect: [GitHub](https://github.com/mpawank) | [LinkedIn](https://www.linkedin.com/in/m-pawan-kumar-b3978424b/)
+
+"Building tools that protect, empower, and inspire safer online communities."
+
+## 🤝 Contributing
+
+We’re actively looking for contributors to help make the UI mobile responsive.
+If you’re passionate about UX/UI, feel free to submit a pull request!
+
+## ⭐ Star the repo and spread the word!
+
+👥 Contributors
+Thanks to all the amazing contributors helping make CyberShield better!<br> <br>
+<a href="https://github.com/denshaw-09/contribute-Cybershield" target="_blank" rel="noopener noreferrer" style="text-decoration:none; text-align:center; display:inline-block;">
+  <img src="https://github.com/denshaw-09.png" width="60" alt="denshaw-09 GitHub Avatar" style="border-radius:50%;" />
+  <br />
+  <sub>
+    <b>denshaw-09</b>
+  </sub>
+</a>
