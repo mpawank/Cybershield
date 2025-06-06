@@ -75,6 +75,22 @@ python app.py
 🔹 Generate AI-powered conclusions using the /conclude endpoint.
 🔹 Integrate the API into existing platforms to enhance online safety.
 
+## 🚀 Docker Installation & Setup
+This project, CyberShield, can be containerized using Docker. Follow the steps below to build and run it.
+
+### 📦 Build the Docker Image
+Run the following command in the root of the project (where the Dockerfile is located):
+
+
+docker build -t mpawank/cybershield:latest .
+
+### ▶️ Run the Container
+
+docker run -p 5000:5000 mpawank/cybershield:latest
+
+Your Flask app will be available at: http://localhost:5000
+
+
 ## 👑 Project Owner
 
 Built with 💡, 💻, and ❤️ by:
