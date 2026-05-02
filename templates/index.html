@@ -4,156 +4,306 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cyberbullying Detection</title>
+  <title>CyberShield - AI Cyberbullying Detection</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../static/styles.css">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
 </head>
 
 <body>
   <div class="min-h-screen text-gray-100">
-    <header class="absolute sticky inset-x-0 top-0 z-50">
-      <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-        <div class="flex lg:flex-1">
-          <a href="/" class="-m-1.5 p-1.5">
-            <span class="text-xl font-bold tracking-wide uppercase">CyberShield</span>
-            <!-- <img class="h-8 w-auto" src="" alt=""> -->
-          </a>
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 backdrop-blur-lg bg-black/30 border-b border-white/10">
+      <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2">
+          <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <span class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">CyberShield</span>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="/" class="text-gray-300 hover:text-cyan-400 transition-colors">Home</a>
+          <a href="{{ url_for('static', filename='awareness.html') }}" class="text-gray-300 hover:text-cyan-400 transition-colors">Awareness</a>
+          <a href="{{ url_for('static', filename='casestudy.html') }}" class="text-gray-300 hover:text-cyan-400 transition-colors">Case Studies</a>
+          <a href="{{ url_for('static', filename='faq.html') }}" class="text-gray-300 hover:text-cyan-400 transition-colors">FAQs</a>
+          <a href="{{ url_for('static', filename='about.html') }}" class="text-gray-300 hover:text-cyan-400 transition-colors">About</a>
         </div>
-        <div class="lg:flex lg:gap-x-12">
-          <a href="/" class="text-m/6 font-semibold text-gray-100">Home</a>
-          <a href="{{ url_for('static', filename='awareness.html') }}"
-            class="text-m/6 font-semibold text-gray-200">Awareness</a>
-          <a href="{{ url_for('static', filename='casestudy.html') }}" class="text-m/6 font-semibold text-gray-200">Case
-            Studies</a>
-          <a href="{{ url_for('static', filename='faq.html') }}" class="text-m/6 font-semibold text-gray-200">FAQs</a>
-          <a href="{{ url_for('static', filename='about.html') }}"
-            class="text-m/6 font-semibold text-gray-200">About</a>
-        </div>
-        <div class="lg:flex lg:flex-1 lg:justify-end">
-          <a href="{{ url_for('static', filename='joinus.html') }}" class="text-sm/6 font-semibold text-gray-200">Join
-            Us <span aria-hidden="true">&rarr;</span></a>
-        </div>
+        <a href="{{ url_for('static', filename='joinus.html') }}" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-medium hover:shadow-lg hover:shadow-cyan-500/25 transition-all">
+          Join Us
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
       </nav>
     </header>
 
-    <div class="relative isolate px-6 pt-14 lg:px-8">
-      <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-        aria-hidden="true">
-        <div
-          class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-          style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-cyan-900/20"></div>
+      <div class="absolute top-20 left-10 w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
+      
+      <div class="relative max-w-4xl mx-auto px-6 text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm mb-8">
+          <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+          <span class="text-gray-300">AI-Powered Safety Protection</span>
+        </div>
+        
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+          <span class="text-gray-200">Protect Digital Spaces</span>
+          <br>
+          <span class="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">With Advanced AI</span>
+        </h1>
+        
+        <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+          Our state-of-the-art machine learning model detects and predicts cyberbullying in real-time, creating safer online environments for everyone.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#model" class="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-semibold hover:shadow-xl hover:shadow-cyan-500/30 transition-all transform hover:scale-105">
+            Try Our Model
+          </a>
+          <a href="https://github.com/mpawank/Cybershield/" target="_blank" class="px-8 py-4 rounded-full border border-white/20 text-gray-300 hover:bg-white/10 hover:text-white transition-all flex items-center gap-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            View Source
+          </a>
         </div>
       </div>
-      <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-        <div class="hidden sm:mb-8 sm:flex sm:justify-center">
-          <div class="relative rounded-full px-3 py-1 text-sm/6 text-gray-300 ring-1 ring-cyan-500 hover:ring-cyan-300">
-            How to Stop Cyberbullying: Insights from UNICEF <a
-              href="https://www.unicef.org/end-violence/how-to-stop-cyberbullying" target="_blank"
-              class="font-semibold text-cyan-300"><span class="absolute inset-0" aria-hidden="true"></span>Read more
-              <span aria-hidden="true">&rarr;</span></a>
+    </section>
+
+    <!-- Model Section -->
+  <div class="py-16 px-6" id="model">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          <span class="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Cyberbullying</span>
+          <span class="text-gray-200"> Detection</span>
+        </h2>
+        <p class="text-gray-400 max-w-xl mx-auto">Enter any text to analyze and detect potential cyberbullying content with AI-powered accuracy.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+      <!-- Left Column - Input Card -->
+      <div class="glass-card rounded-2xl p-6 md:p-8">
+        <div class="flex items-center justify-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-white">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75a2.25 2.25 0 0 1-1.364 5.108l-1.04.9a2.25 2.25 0 0 1-3.182 0l-1.04-.9a2.25 2.25 0 0 1-1.364-5.108V7.5" />
+            </svg>
           </div>
+          <h2 class="text-xl font-bold text-white">Enter Text</h2>
         </div>
-        <div class="text-center">
-          <h1 class="text-balance text-5xl font-semibold tracking-tight text-gray-200 sm:text-7xl">Protecting Digital
-            Spaces with AI</h1>
-          <p class="mt-8 text-pretty text-lg font-medium text-gray-300 sm:text-xl/8">Our advanced machine learning model
-            detects and predicts cyberbullying, helping create safer online environments for everyone.</p>
-          <div class="mt-10 flex items-center justify-center gap-x-6">
-            <a href="#model"
-              class="rounded-md bg-cyan-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600">Try
-              Our Model</a>
-            <a href="https://github.com/mpawank/Cybershield/" target="_blank"
-              class="text-sm/6 font-semibold text-gray-200">Source Code <span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-      </div>
-      <div
-        class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-        aria-hidden="true">
-        <div
-          class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-          style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="min-h-[80vh]" id="model">
-    <h1 class="text-2xl font-bold mb-6 text-center text-cyan-300">Cyberbullying Detection</h1>
-    <div class="flex items-center justify-center">
-      <!-- Left Column -->
-      <div class="bg-white bg-opacity-40 shadow-md rounded-lg p-8 w-full max-w-lg mr-4 min-h-[55vh]">
-        <h2 class="text-xl font-bold mb-6 text-center text-cyan-100">Input Text</h2>
         <form id="predict-form">
-          <div class="mb-4">
-            <label for="comment" class="block text-sm font-medium text-gray-200">Enter a Comment</label>
-            <textarea id="comment" name="comment" rows="10"
-              class="mt-1 block w-full px-3 py-2 border text-gray-700 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"></textarea>
+          <div class="mb-4 flex items-center gap-3">
+            <label for="lang-select" class="text-sm font-medium text-gray-300">Language:</label>
+            <select id="lang-select" class="flex-1 max-w-[200px] px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-gray-200 text-sm focus:ring-2 focus:ring-cyan-500 focus:border-transparent backdrop-blur-sm">
+              <option value="en-US">English</option>
+              <option value="hi-IN">Hindi (हिन्दी)</option>
+              <option value="te-IN">Telugu (తెలుగు)</option>
+              <option value="or-IN">Odia (ଓଡ଼ିଆ)</option>
+              <option value="ta-IN">Tamil (தமிழ்)</option>
+              <option value="bn-IN">Bengali (বাংলা)</option>
+              <option value="mr-IN">Marathi (मराठी)</option>
+              <option value="es-ES">Spanish</option>
+              <option value="fr-FR">French</option>
+              <option value="de-DE">German</option>
+            </select>
+          </div>
+          <div class="mb-4 relative">
+            <label for="comment" class="block text-sm font-medium text-gray-300 mb-2 flex justify-between items-center">
+              <span>Your Text</span>
+              <button type="button" id="mic-btn" class="p-2 rounded-full bg-white/10 hover:bg-white/20 text-cyan-400 transition-all" title="Voice Input">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" />
+                </svg>
+              </button>
+            </label>
+            <textarea id="comment" name="comment" rows="8" placeholder="Type or speak your text here..."
+              class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:ring-2 focus:ring-cyan-500 focus:border-transparent backdrop-blur-sm resize-none"></textarea>
+            <p id="mic-status" class="text-xs text-cyan-400 mt-2 hidden">Listening...</p>
           </div>
           <button id="predict-btn" type="submit"
-            class="bg-cyan-500 text-white py-2 px-4 font-bold rounded-lg w-full hover:bg-cyan-700  disabled:bg-gray-400 disabled:cursor-not-allowed">Predict</button>
+            class="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-semibold hover:shadow-xl hover:shadow-cyan-500/30 transition-all transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+          <span id="btn-text">Analyze Text</span>
+          <svg id="btn-spinner" class="animate-spin h-5 w-5 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        </button>
         </form>
       </div>
 
-      <!-- Right Column -->
-      <div class="bg-white bg-opacity-40 shadow-md rounded-lg p-8 w-full max-w-lg ml-4">
-        <h2 class="text-xl font-bold mb-6 text-center text-cyan-100">Prediction Result</h2>
-        <div id="result" class="mt-6 border border-gray-300 rounded-md shadow-sm p-4">
-          <p id="bullying-status" class="text-lg mt-2 text-gray-100"></p>
-          <div id="probabilities" class="mt-4">
-            <div class="mb-2">
-              <p class="text-cyan-300"><strong>Toxic:</strong></p>
-              <div class="w-full bg-gray-200 rounded-md">
-                <div id="toxic-bar" class="h-4 rounded-md transition-all duration-300"></div>
+      <!-- Right Column - Result Card -->
+      <div class="glass-card rounded-2xl p-6 md:p-8">
+        <div class="flex items-center justify-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-white">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+            </svg>
+          </div>
+          <h2 class="text-xl font-bold text-white">Analysis Result</h2>
+        </div>
+        <div id="result" class="mt-4 rounded-xl bg-white/5 border border-white/10 p-5 hidden">
+          <div class="flex justify-between items-start mb-4">
+            <p id="bullying-status" class="text-lg text-white font-medium leading-relaxed"></p>
+            <button id="speak-btn" class="p-2 rounded-full bg-purple-500/20 text-purple-400 hover:bg-purple-500/40 transition-all disabled:opacity-30 disabled:cursor-not-allowed" title="Read aloud" disabled>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
+              </svg>
+            </button>
+          </div>
+          <div id="probabilities" class="space-y-4">
+            <div>
+              <div class="flex justify-between text-sm mb-2">
+                <span class="text-gray-400">Toxic</span>
+                <span id="toxic-pct" class="text-cyan-400 font-medium">0%</span>
+              </div>
+              <div class="h-2 rounded-full bg-white/10 overflow-hidden">
+                <div id="toxic-bar" class="h-full rounded-full transition-all duration-700"></div>
               </div>
             </div>
-            <div class="mb-2">
-              <p class="text-cyan-300"><strong>Severe Toxic:</strong></p>
-              <div class="w-full bg-gray-200 rounded-md">
-                <div id="severe-toxic-bar" class="h-4 rounded-md transition-all duration-300"></div>
+            <div>
+              <div class="flex justify-between text-sm mb-2">
+                <span class="text-gray-400">Severe Toxic</span>
+                <span id="severe-toxic-pct" class="text-cyan-400 font-medium">0%</span>
+              </div>
+              <div class="h-2 rounded-full bg-white/10 overflow-hidden">
+                <div id="severe-toxic-bar" class="h-full rounded-full transition-all duration-700"></div>
               </div>
             </div>
-            <div class="mb-2">
-              <p class="text-cyan-300"><strong>Obscene:</strong></p>
-              <div class="w-full bg-gray-200 rounded-md">
-                <div id="obscene-bar" class="h-4 rounded-md transition-all duration-300"></div>
+            <div>
+              <div class="flex justify-between text-sm mb-2">
+                <span class="text-gray-400">Obscene</span>
+                <span id="obscene-pct" class="text-cyan-400 font-medium">0%</span>
+              </div>
+              <div class="h-2 rounded-full bg-white/10 overflow-hidden">
+                <div id="obscene-bar" class="h-full rounded-full transition-all duration-700"></div>
               </div>
             </div>
-            <div class="mb-2">
-              <p class="text-cyan-300"><strong>Threat:</strong></p>
-              <div class="w-full bg-gray-200 rounded-md">
-                <div id="threat-bar" class="h-4 rounded-md transition-all duration-300"></div>
+            <div>
+              <div class="flex justify-between text-sm mb-2">
+                <span class="text-gray-400">Threat</span>
+                <span id="threat-pct" class="text-cyan-400 font-medium">0%</span>
+              </div>
+              <div class="h-2 rounded-full bg-white/10 overflow-hidden">
+                <div id="threat-bar" class="h-full rounded-full transition-all duration-700"></div>
               </div>
             </div>
-            <div class="mb-2">
-              <p class="text-cyan-300"><strong>Insult:</strong></p>
-              <div class="w-full bg-gray-200 rounded-md">
-                <div id="insult-bar" class="h-4 rounded-md transition-all duration-300"></div>
+            <div>
+              <div class="flex justify-between text-sm mb-2">
+                <span class="text-gray-400">Insult</span>
+                <span id="insult-pct" class="text-cyan-400 font-medium">0%</span>
+              </div>
+              <div class="h-2 rounded-full bg-white/10 overflow-hidden">
+                <div id="insult-bar" class="h-full rounded-full transition-all duration-700"></div>
               </div>
             </div>
-            <div class="mb-2">
-              <p class="text-cyan-300"><strong>Identity Hate:</strong></p>
-              <div class="w-full bg-gray-200 rounded-md">
-                <div id="identity-hate-bar" class="h-4 rounded-md transition-all duration-300"></div>
+            <div>
+              <div class="flex justify-between text-sm mb-2">
+                <span class="text-gray-400">Identity Hate</span>
+                <span id="identity-hate-pct" class="text-cyan-400 font-medium">0%</span>
+              </div>
+              <div class="h-2 rounded-full bg-white/10 overflow-hidden">
+                <div id="identity-hate-bar" class="h-full rounded-full transition-all duration-700"></div>
               </div>
             </div>
-
           </div>
         </div>
+        <div id="placeholder" class="text-center py-12">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-white/5 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-gray-500">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+            </svg>
+          </div>
+          <p class="text-gray-500">Enter text and click analyze to see results</p>
+</div>
       </div>
     </div>
   </div>
-  <footer class="bg-black bg-opacity-50 py-6">
-    <div class="container mx-auto px-6 md:px-12 text-center">
-      <p class="text-gray-400">© 2024 Cybersheild</p>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 bg-black/30 backdrop-blur-lg py-8">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <p class="text-gray-400">© 2024 CyberShield. Built with AI for a safer internet.</p>
     </div>
   </footer>
   <script>
-    function setBar(elementId, value) {
+    const speakBtn = document.getElementById('speak-btn');
+    const langSelect = document.getElementById('lang-select');
+    let currentConclusion = '';
+    let synth = window.speechSynthesis;
+    let isSpeaking = false;
+
+    function speakText(text) {
+      if (!synth) {
+        alert('Text-to-speech not supported in this browser');
+        return;
+      }
+      if (synth.speaking) {
+        synth.cancel();
+      }
+      if ('speechSynthesis' in window) {
+        const selectedLang = langSelect.value;
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.9;
+        utterance.pitch = 1;
+        utterance.lang = selectedLang;
+        
+        // Try to find a voice for the selected language
+        const voices = synth.getVoices();
+        const voice = voices.find(v => v.lang.startsWith(selectedLang.split('-')[0]));
+        if (voice) {
+          utterance.voice = voice;
+        }
+        
+        utterance.onstart = () => { isSpeaking = true; };
+        utterance.onend = () => { isSpeaking = false; };
+        utterance.onerror = () => { isSpeaking = false; };
+        synth.speak(utterance);
+      }
+    }
+
+    speakBtn.addEventListener('click', () => {
+      if (currentConclusion) {
+        speakText(currentConclusion);
+      }
+    });
+
+    // Stop speaking when clicking anywhere else
+    document.addEventListener('click', (e) => {
+      if (e.target !== speakBtn && synth.speaking) {
+        synth.cancel();
+      }
+    });
+
+    // Load voices (needed for some browsers)
+    if ('speechSynthesis' in window) {
+      speechSynthesis.onvoiceschanged = () => {
+        console.log('Voices loaded:', speechSynthesis.getVoices().length);
+      };
+    }
+
+    function setBar(elementId, pctId, value) {
       const bar = document.getElementById(elementId);
-      const percentage = (value * 100).toFixed(2);
+      const pctLabel = document.getElementById(pctId);
+      const percentage = (value * 100).toFixed(1);
       bar.style.width = `${percentage}%`;
-      bar.style.background = (percentage > 50) ? `linear-gradient(to right, orange, red)` : ((percentage > 30) ? `linear-gradient(to right, yellow, orange)` : `linear-gradient(to right, #90EE90, yellow)`);
+      pctLabel.textContent = `${percentage}%`;
+      
+      let color;
+      if (percentage > 50) {
+        color = 'linear-gradient(90deg, #ef4444, #dc2626)';
+      } else if (percentage > 30) {
+        color = 'linear-gradient(90deg, #f59e0b, #d97706)';
+      } else {
+        color = 'linear-gradient(90deg, #22c55e, #16a34a)';
+      }
+      bar.style.background = color;
     }
 
     document.getElementById('predict-form').addEventListener('submit', async function (e) {
@@ -161,12 +311,14 @@
 
       const comment = document.getElementById('comment').value;
       const predictButton = document.getElementById('predict-btn');
+      const btnText = document.getElementById('btn-text');
+      const btnSpinner = document.getElementById('btn-spinner');
 
-      // Set loading state
-      predictButton.textContent = 'Loading...';
+      btnText.textContent = 'Analyzing...';
+      btnSpinner.classList.remove('hidden');
       predictButton.disabled = true;
-      predictButton.classList.add('bg-gray-400', 'cursor-not-allowed');
-      predictButton.classList.remove('bg-cyan-500', 'hover:bg-cyan-700');
+      predictButton.classList.add('bg-gray-500', 'cursor-not-allowed');
+      predictButton.classList.remove('btn-primary');
       const response = await fetch('/predict', {
         method: 'POST',
         headers: {
@@ -198,23 +350,112 @@
       const conclusionData = await conclusionResponse.json();
 
       document.getElementById('result').classList.remove('hidden');
+      document.getElementById('placeholder').classList.add('hidden');
 
-      const bullyingStatusElement = document.getElementById('bullying-status');
-      bullyingStatusElement.textContent = conclusionData.conclusion;
+      const bullyingStatusElement = document.getElementById('bullying-status'); 
+      currentConclusion = conclusionData.conclusion;
+      bullyingStatusElement.textContent = currentConclusion; 
+      
+      setBar('toxic-bar', 'toxic-pct', data.result.toxic); 
+      setBar('severe-toxic-bar', 'severe-toxic-pct', data.result.severe_toxic); 
+      setBar('obscene-bar', 'obscene-pct', data.result.obscene); 
+      setBar('threat-bar', 'threat-pct', data.result.threat); 
+      setBar('insult-bar', 'insult-pct', data.result.insult); 
+      setBar('identity-hate-bar', 'identity-hate-pct', data.result.identity_hate); 
 
-      setBar('toxic-bar', data.result.toxic);
-      setBar('severe-toxic-bar', data.result.severe_toxic);
-      setBar('obscene-bar', data.result.obscene);
-      setBar('threat-bar', data.result.threat);
-      setBar('insult-bar', data.result.insult);
-      setBar('identity-hate-bar', data.result.identity_hate);
-      predictButton.textContent = 'Predict';
-      predictButton.disabled = false;
-      predictButton.classList.add('bg-cyan-500', 'hover:bg-cyan-700');
-      predictButton.classList.remove('bg-gray-400', 'cursor-not-allowed');
+      speakBtn.disabled = false;
+      speakBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+      
+      btnText.textContent = 'Predict';
+      btnSpinner.classList.add('hidden');
+      predictButton.disabled = false; 
+      predictButton.classList.add('btn-primary'); 
+      predictButton.classList.remove('bg-gray-500', 'cursor-not-allowed');
+
     });
 
+    // Voice Input Implementation using Web Speech API
+    const micBtn = document.getElementById('mic-btn');
+    const commentArea = document.getElementById('comment');
+    const micStatus = document.getElementById('mic-status');
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    
+    if (SpeechRecognition) {
+      const recognition = new SpeechRecognition();
+      
+      recognition.continuous = false;
+      recognition.interimResults = true;
+      recognition.lang = langSelect.value;
+
+      // Update recognition language when selection changes
+      langSelect.addEventListener('change', () => {
+        recognition.lang = langSelect.value;
+      });
+
+      let isRecording = false;
+
+      micBtn.addEventListener('click', async () => {
+        if (isRecording) {
+          recognition.stop();
+          return;
+        }
+        
+        // Update language before starting
+        recognition.lang = langSelect.value;
+        
+        try {
+          await recognition.start();
+          isRecording = true;
+          micBtn.classList.add('text-red-500', 'recording');
+          micBtn.classList.remove('text-cyan-300');
+          micStatus.textContent = 'Listening... Click mic again to stop.';
+          micStatus.classList.remove('hidden');
+        } catch (err) {
+          console.error('Mic error:', err);
+          alert('Microphone access denied or not available. Please allow microphone permission.');
+        }
+      });
+
+      recognition.onresult = (event) => {
+        let finalTranscript = '';
+
+        for (let i = event.resultIndex; i < event.results.length; ++i) {
+          if (event.results[i].isFinal) {
+            finalTranscript += event.results[i][0].transcript;
+          }
+        }
+
+        if (finalTranscript) {
+          const currentText = commentArea.value;
+          commentArea.value = currentText ? currentText + ' ' + finalTranscript : finalTranscript;
+        }
+      };
+
+      recognition.onerror = (event) => {
+        console.error('Speech recognition error:', event.error);
+        if (event.error === 'not-allowed') {
+          alert('Microphone permission denied. Please allow microphone access in your browser settings.');
+        }
+        stopRecordingUI();
+      };
+
+      recognition.onend = () => {
+        stopRecordingUI();
+      };
+
+      function stopRecordingUI() {
+        isRecording = false;
+        micBtn.classList.remove('text-red-500', 'recording');
+        micBtn.classList.add('text-cyan-300');
+        micStatus.classList.add('hidden');
+      }
+    } else {
+      micBtn.style.display = 'none';
+      micStatus.textContent = 'Voice input not supported in this browser. Use Chrome for best experience.';
+      micStatus.classList.remove('hidden');
+      micStatus.style.color = '#f97316';
+    }
   </script>
 </body>
-
 </html>

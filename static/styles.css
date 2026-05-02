@@ -1,24 +1,162 @@
-/* Set the body style */
-body {
+/* Base Styles */
+* {
     margin: 0;
-    /* Remove default margin */
     padding: 0;
-    /* Remove default padding */
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
     background-image: url('./Images/bg.png');
-    /* Replace with your image URL */
     background-size: cover;
-    /* Make the image cover the entire viewport */
     background-attachment: fixed;
-    /* Fix the image to the viewport */
     background-position: center;
-    /* Center the image */
     background-repeat: no-repeat;
-    /* Prevent the image from repeating */
-    opacity: 1;
-    /* Adjust opacity (optional, this affects all content unless layered) */
     overflow-x: hidden;
-    /* Prevent horizontal scrolling caused by large content */
     color: white;
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.7) 100%);
+    z-index: -1;
+}
+
+/* Glass Card Effect */
+.glass-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Form Elements */
+textarea {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    resize: vertical;
+}
+
+textarea:focus {
+    box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.3);
+    border-color: rgba(6, 182, 212, 0.5) !important;
+}
+
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+select {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+select:focus {
+    outline: none;
+    border-color: #06b6d4;
+    box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.2);
+}
+
+select option {
+    background: #1f2937;
+    color: white;
+}
+
+/* Utility */
+.faq-icon {
+    font-size: 2.5rem;
+    color: cyan !important;
+}
+
+/* Button Enhancements */
+button {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Icon Buttons */
+#speak-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+#speak-btn:not(:disabled):hover {
+    animation: pulse 1s infinite;
+}
+
+#mic-btn {
+    transition: all 0.3s ease;
+}
+
+#mic-btn:hover {
+    transform: scale(1.1);
+}
+
+#mic-btn.text-red-500 {
+    color: #ef4444;
+    animation: mic-pulse 1.5s infinite;
+}
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes mic-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Gradient text utility */
+.bg-gradient-to-r {
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .glass-card {
+        padding: 1.5rem;
+    }
 }
 
 /* Add an overlay layer for opacity control */
@@ -42,4 +180,101 @@ body::before {
 .faq-icon {
     font-size: 2.5rem;
     color: cyan !important;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+textarea {
+    background: rgba(255, 255, 255, 0.95) !important;
+    color: #1f2937 !important;
+    resize: vertical;
+}
+
+textarea:focus {
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.3);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #06b6d4, #0891b2);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0891b2, #06b6d4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
+}
+
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #22d3ee;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+#speak-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+#speak-btn:not(:disabled):hover {
+    animation: pulse 1s infinite;
+}
+
+#mic-btn {
+    transition: all 0.3s ease;
+}
+
+#mic-btn:hover {
+    transform: scale(1.1);
+}
+
+#mic-btn.text-red-500 {
+    color: #ef4444;
+    animation: mic-pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.mic-btn.recording {
+    animation: mic-pulse 1.5s infinite;
+}
+
+@keyframes mic-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
 }
